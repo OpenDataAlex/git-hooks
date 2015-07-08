@@ -1,0 +1,7 @@
+feat(NewFeature): create new feature
+
+Made change to include new functionality.  Had to use X over Y because the library did not end up
+supporting the requested feature as planned.
+
+Breaks:  N/A
+Closed #12345, WIP: #12346
