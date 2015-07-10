@@ -7,6 +7,7 @@ Based on the gist found at:  https://gist.github.com/onjin/5442494, originally c
 __author__ = 'ameadows'
 
 import sys
+
 import re
 
 valid_commit_types = ['feat', 'FEAT', 'FEATURE', 'feature',
@@ -17,8 +18,9 @@ valid_commit_types = ['feat', 'FEAT', 'FEATURE', 'feature',
                       'test', 'TEST',
                       'chore', 'CHORE', ]
 
-valid_status_types = ['closes', 'Closes', 'closed', 'Closed',
-                      'fixes', 'Fixes', 'fixed', 'Fixed',
+valid_status_types = ['closes', 'Closes', 'closed', 'Closed', 'CLOSES', 'CLOSED'
+                                                                        'fixes', 'Fixes', 'fixed', 'Fixed', 'FIXES',
+                      'FIXED'
                       'wip', 'WIP', ]
 
 
@@ -32,6 +34,10 @@ commit_file = sys.argv[1]
 
 help_address = 'https://github.com/OpenDataAlex/git-hooks/blob/master/README.md'
 commit_errors = []
+
+# Adding flags to check for other sections of the commit message.
+breaks_section = False
+story_section = False
 
 with open(commit_file) as commit:
     lines = commit.readlines()
@@ -62,10 +68,6 @@ with open(commit_file) as commit:
 
         # Start count at 3 because the first lines are already processes above.
         count = 3
-
-        # Adding flags to check for other sections of the commit message.
-        breaks_section = False
-        story_section = False
 
         # Due to an indeterminate number of lines that could occur, we need to use a while loop to test
         # the line logic.

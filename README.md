@@ -1,8 +1,8 @@
 # git-hooks
 These are some git hooks used to ensure that tests are run, commit messages are in the proper format, etc.
 
-##client hooks
-All hooks that can be used on the developer/client side are found here.
+##Client Hooks
+All hooks that can be used on the developer/client side are described in this section and can be found in the client directory.
 
 ###commit-msg
 Based on the commit message convention created by [AngularJS](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
@@ -47,7 +47,21 @@ Here is the list of accepted types:
 - perf: A code change that improves performance
 - test: Adding missing tests
 - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+#####Story Status Types
+Here is the list of accepted story status types:
+
+- closes [also:  Closes, closed, Closed, CLOSES, CLOSED] - story/defect/issue is closed
+- fixes [also:  Fixes, fixed, Fixed, FIXES, FIXED] - story/defect/issue is fixed
+- wip [also: WIP] - story/defect/issue is being worked on, and commit should be associated with it
     
 
-##server hooks
-All hooks that can be used on the remote/server side are found here.
+##Server Hooks
+All hooks that can be used on the remote/server side are found in the server directory and are described here.
+
+##Templates
+All templates that can be used on the client side are found in the templates directory and are described here.
+
+###commit-message-template
+The commit-message-template provides a guide as the default message for git commits and matches the parameters set for
+the commit-msg client hook, listed above.
